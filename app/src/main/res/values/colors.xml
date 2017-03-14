@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="green">#006600</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff3300</color>
+    <color name="blue_dark">#204666</color>
+    <color name="yellow">#ffff00</color>
+    <color name="gray_light">#d7d7d7</color>
+    <color name="gray_dusty">#9b9b9b</color>
+    <color name="divider_line">#33afb4b6</color>
+    <color name="gray_dark">#424242</color>
+    <color name="yellow_green">#B8E986</color>
+    <color name="yellow_green_dark">#99df53</color>
+    <color name="green_leaf">#417505</color>
+
+    <color name="color_1">#4F6A0A</color>
+    <color name="color_2">#12D416</color>
+    <color name="color_3">#27db82</color>
+    <color name="color_4">#9ed416</color>
+    <color name="color_5">#a93dff</color>
+    <color name="color_6">#663bff</color>
+    <color name="color_7">#165cff</color>
+    <color name="color_8">#1f5ad9</color>
+    <color name="color_9">#241fb5</color>
+    <color name="color_10">#498AC0</color>
+    <color name="color_11">#18b22a</color>
+    <color name="color_12">#295b84</color>
+    <color name="color_13">#4A90E2</color>
+    <color name="color_14">#009900</color>
+    <color name="color_15">#AFB4B6</color>
+</resources>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">RecyclerHelper</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="author">Hoai Nguyen</string>
+    <string name="author_mail">nguyentien.hoai265@gmail.com</string>
+    <string name="nav_baseFragment">Base Fragment</string>
+    <string name="nav_mvpCollectionFragment">MVP Endless Fragment</string>
+    <string name="nav_bindingItem">Fragment with Binding Item</string>
+    <string name="nav_groupAdapter">Group Adapter</string>
+    <string name="nav_baseCollectionFragment">Endless Fragment</string>
+    <string name="nav_imageEndlessFragment">Gallery Endless Fragment</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_baseFragment"
+            android:title="@string/nav_baseFragment"/>
+        <item
+            android:id="@+id/nav_endlessFragment"
+            android:title="@string/nav_baseCollectionFragment"/>
+        <item
+            android:id="@+id/nav_mvpEndlessFragment"
+            android:title="@string/nav_mvpCollectionFragment"/>
+
+        <item
+            android:id="@+id/nav_imageEndlessFragment"
+            android:title="@string/nav_imageEndlessFragment"/>
+
+        <item
+            android:id="@+id/nav_bindingItem"
+            android:title="@string/nav_bindingItem"/>
+        <item
+            android:id="@+id/nav_GroupAdapter"
+            android:title="@string/nav_groupAdapter"/>
+    </group>
+</menu>
