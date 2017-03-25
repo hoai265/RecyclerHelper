@@ -1,15 +1,15 @@
-package hoainguyen.recyclerhelper.data.model;
+package hoainguyen.recyclerhelper.ui.gallery;
 
 /**
  * Created by hoainguyen on 3/9/17.
  */
 
-public class GalleryImageModel {
+public class GalleryImage {
     private final long id;
     private final String path;
     private final String thumbnail;
 
-    public GalleryImageModel(long id, String path, String thumbnail) {
+    public GalleryImage(long id, String path, String thumbnail) {
         this.id = id;
         this.path = path;
         this.thumbnail = thumbnail;

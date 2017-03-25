@@ -1,5 +1,6 @@
 package hoainguyen.recyclerhelper.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import hoainguyen.recyclerhelper.ui.gallery.ChooseImageActivity;
 import hoainguyen.recyclerhelper.R;
 import hoainguyen.recyclerhelper.ui.mvp.MVPEndlessFragment;
 
@@ -64,8 +66,10 @@ public class NavigationActivity extends AppCompatActivity
                 replaceFragment(mvpEndlessFragment);
                 break;
             case R.id.nav_imageEndlessFragment:
-                ImageGalleryFragment imageGalleryFragment = new ImageGalleryFragment();
-                replaceFragment(imageGalleryFragment);
+                Intent intent = new Intent(this, ChooseImageActivity.class);
+                startActivity(intent);
+//                ImageGalleryFragment imageGalleryFragment = new ImageGalleryFragment();
+//                replaceFragment(imageGalleryFragment);
                 break;
             case R.id.nav_bindingItem:
                 BindingItemFragment bindingItemFragment = new BindingItemFragment();

@@ -16,6 +16,7 @@
     <color name="yellow_green">#B8E986</color>
     <color name="yellow_green_dark">#99df53</color>
     <color name="green_leaf">#417505</color>
+    <color name="Malachite">#1BC82F</color>
 
     <color name="color_1">#4F6A0A</color>
     <color name="color_2">#12D416</color>
@@ -32,4 +33,6 @@
     <color name="color_13">#4A90E2</color>
     <color name="color_14">#009900</color>
     <color name="color_15">#AFB4B6</color>
+    <color name="black_30">#4D000000</color>
+    <color name="black_60">#96000000</color>
 </resources>

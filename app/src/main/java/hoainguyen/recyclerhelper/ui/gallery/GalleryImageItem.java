@@ -1,4 +1,4 @@
-package hoainguyen.recyclerhelper.ui.items;
+package hoainguyen.recyclerhelper.ui.gallery;
 
 import android.content.Context;
 import android.net.Uri;
@@ -15,7 +15,6 @@ import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
 import hoainguyen.lib.recyclerhelper.recycler.item.RecyclerViewRenderItem;
 import hoainguyen.recyclerhelper.R;
-import hoainguyen.recyclerhelper.data.model.GalleryImageModel;
 import hoainguyen.recyclerhelper.utils.ScreenUtils;
 
 /**
@@ -24,10 +23,10 @@ import hoainguyen.recyclerhelper.utils.ScreenUtils;
 
 public class GalleryImageItem extends RecyclerViewRenderItem<GalleryImageItem.GalleryImageViewHolder> {
     private static com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder PipelineDraweeControllerBuilder = Fresco.newDraweeControllerBuilder();
-    private final GalleryImageModel mDataModel;
+    private final GalleryImage mDataModel;
 
-    public GalleryImageItem(GalleryImageModel galleryImageModel) {
-        mDataModel = galleryImageModel;
+    public GalleryImageItem(GalleryImage galleryImage) {
+        mDataModel = galleryImage;
     }
 
     @Override
@@ -36,11 +35,11 @@ public class GalleryImageItem extends RecyclerViewRenderItem<GalleryImageItem.Ga
     }
 
     @Override
-    public void bindViewHolder(GalleryImageViewHolder holder) {
+    public void bindViewHolder(final GalleryImageViewHolder holder) {
         String imageUrl = mDataModel.getPath() == null ? mDataModel.getThumbnail() : mDataModel.getPath();
         Uri uri = Uri.parse("file://" + imageUrl);
 
-        int size = ScreenUtils.getScreenWidth() / 3;
+        int size = ScreenUtils.getScreenWidth() / 4;
         ImageRequest request =
                 ImageRequestBuilder.newBuilderWithSource(uri)
                         .setResizeOptions(new ResizeOptions(size, size))
@@ -52,14 +51,26 @@ public class GalleryImageItem extends RecyclerViewRenderItem<GalleryImageItem.Ga
                         .setImageRequest(request)
                         .build();
         holder.imgImage.setController(controller);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.viewOverLay.setVisibility(holder.viewOverLay.getVisibility() == View.VISIBLE ? View.GONE : View.VISIBLE);
+            }
+        });
     }
 
     static class GalleryImageViewHolder extends RecyclerView.ViewHolder {
         SimpleDraweeView imgImage;
+        View viewOverLay;
 
         public GalleryImageViewHolder(View itemView) {
             super(itemView);
             imgImage = (SimpleDraweeView) itemView.findViewById(R.id.img_image);
+            viewOverLay = itemView.findViewById(R.id.view_overlay);
         }
+    }
+
+    public interface GalleryItemListener {
+        void onGalleryItemClick(GalleryImage galleryImage);
     }
 }
