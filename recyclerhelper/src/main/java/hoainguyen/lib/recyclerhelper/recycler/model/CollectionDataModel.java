@@ -1,4 +1,4 @@
-package hoainguyen.lib.recyclerhelper.collection;
+package hoainguyen.lib.recyclerhelper.recycler.model;
 
 import java.util.Arrays;
 

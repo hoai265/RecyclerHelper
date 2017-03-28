@@ -1,4 +1,4 @@
-package hoainguyen.lib.recyclerhelper.recycler.adapter;
+package hoainguyen.lib.recyclerhelper.recycler;
 
 /**
  * Created by hoainguyen on 2/24/17.

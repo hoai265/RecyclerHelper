@@ -1,4 +1,4 @@
-package hoainguyen.lib.recyclerhelper.recycler.adapter;
+package hoainguyen.lib.recyclerhelper.recycler;
 
 
 import android.support.v7.widget.RecyclerView;
@@ -72,6 +72,13 @@ public class MultiTypeRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         notifyItemRangeInserted(position, items.size());
     }
 
+    @Override
+    public void insert(int position, RenderItem renderItem) {
+        mRenderItemList.add(position, renderItem);
+        mapItemViewType(renderItem);
+        notifyItemInserted(position);
+    }
+
     public void append(List<RenderItem> renderItems) {
         mRenderItemList.addAll(mRenderItemList.size(), renderItems);
         mapItemViewType(renderItems);
@@ -121,6 +128,10 @@ public class MultiTypeRVAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     @Override
     public boolean containViewType(int viewType) {
         return (mTypeMap.containsKey(viewType));
+    }
+
+    @Override
+    public void onPositionScrolled(int dy, int position) {
     }
 
     private void mapItemViewType(List<RenderItem> renderItems) {

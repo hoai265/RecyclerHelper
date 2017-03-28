@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import hoainguyen.lib.recyclerhelper.collection.CollectionDataModel;
-import hoainguyen.lib.recyclerhelper.collection.PaginationModel;
+import hoainguyen.lib.recyclerhelper.recycler.model.CollectionDataModel;
+import hoainguyen.lib.recyclerhelper.recycler.model.PaginationModel;
 import hoainguyen.lib.recyclerhelper.recycler.item.RenderItem;
 import hoainguyen.recyclerhelper.R;
 import hoainguyen.recyclerhelper.data.model.DataModel;

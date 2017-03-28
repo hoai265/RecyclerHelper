@@ -8,9 +8,6 @@
         <item
             android:id="@+id/nav_endlessFragment"
             android:title="@string/nav_baseCollectionFragment"/>
-        <item
-            android:id="@+id/nav_mvpEndlessFragment"
-            android:title="@string/nav_mvpCollectionFragment"/>
 
         <item
             android:id="@+id/nav_imageEndlessFragment"

@@ -7,8 +7,8 @@ import android.provider.MediaStore;
 import java.util.ArrayList;
 import java.util.List;
 
-import hoainguyen.lib.recyclerhelper.collection.CollectionDataModel;
-import hoainguyen.lib.recyclerhelper.collection.PaginationModel;
+import hoainguyen.lib.recyclerhelper.recycler.model.CollectionDataModel;
+import hoainguyen.lib.recyclerhelper.recycler.model.PaginationModel;
 
 /**
  * Created by thongbeo on 7/11/16.

@@ -12,9 +12,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import hoainguyen.recyclerhelper.ui.gallery.ChooseImageActivity;
 import hoainguyen.recyclerhelper.R;
-import hoainguyen.recyclerhelper.ui.mvp.MVPEndlessFragment;
+import hoainguyen.recyclerhelper.ui.endless.EndlessFragment;
+import hoainguyen.recyclerhelper.ui.gallery.ChooseImageActivity;
+import hoainguyen.recyclerhelper.ui.groupadapter.GroupAdapterFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -61,15 +62,9 @@ public class NavigationActivity extends AppCompatActivity
                 EndlessFragment endlessFragment = new EndlessFragment();
                 replaceFragment(endlessFragment);
                 break;
-            case R.id.nav_mvpEndlessFragment:
-                MVPEndlessFragment mvpEndlessFragment = new MVPEndlessFragment();
-                replaceFragment(mvpEndlessFragment);
-                break;
             case R.id.nav_imageEndlessFragment:
                 Intent intent = new Intent(this, ChooseImageActivity.class);
                 startActivity(intent);
-//                ImageGalleryFragment imageGalleryFragment = new ImageGalleryFragment();
-//                replaceFragment(imageGalleryFragment);
                 break;
             case R.id.nav_bindingItem:
                 BindingItemFragment bindingItemFragment = new BindingItemFragment();

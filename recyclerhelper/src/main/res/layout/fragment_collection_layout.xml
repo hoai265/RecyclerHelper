@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <hoainguyen.lib.recyclerhelper.recycler.ExRecyclerView
-        android:id="@+id/view_recycler"
+        android:id="@+id/recycle_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package hoainguyen.lib.recyclerhelper.recycler.adapter;
+package hoainguyen.lib.recyclerhelper.recycler;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
@@ -13,12 +13,12 @@ import java.util.Map;
  */
 
 public class StackRecyclerAdapter extends RecyclerView.Adapter {
-    private List<MultiTypeRVAdapter> mAdapters = new ArrayList<>();
-    private Map<MultiTypeRVAdapter, StackRange> mStackRangeMap = new HashMap<>();
+    private List<DataSectionRVAdapter> mAdapters = new ArrayList<>();
+    private Map<DataSectionRVAdapter, StackRange> mStackRangeMap = new HashMap<>();
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        for (MultiTypeRVAdapter adapter : mAdapters) {
+        for (DataSectionRVAdapter adapter : mAdapters) {
             if (adapter.containViewType(viewType)) {
                 return adapter.onCreateViewHolder(parent, viewType);
             }
@@ -28,7 +28,7 @@ public class StackRecyclerAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        MultiTypeRVAdapter adapter = getChildAdapterForPosition(position);
+        DataSectionRVAdapter adapter = getChildAdapterForPosition(position);
         if (adapter != null) {
             adapter.onBindViewHolder(holder, computeChildPosition(adapter, position));
         }
@@ -52,7 +52,7 @@ public class StackRecyclerAdapter extends RecyclerView.Adapter {
         return count;
     }
 
-    public void appendAdapter(final MultiTypeRVAdapter adapter) {
+    public void appendAdapter(final DataSectionRVAdapter adapter) {
         mAdapters.add(adapter);
         reMappingStackRange();
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
@@ -104,14 +104,14 @@ public class StackRecyclerAdapter extends RecyclerView.Adapter {
         mStackRangeMap.clear();
         int mappedIndex = 0;
         for (int index = 0; index < mAdapters.size(); index++) {
-            MultiTypeRVAdapter childAdapter = mAdapters.get(index);
+            DataSectionRVAdapter childAdapter = mAdapters.get(index);
             mStackRangeMap.put(childAdapter, new StackRange(mappedIndex, childAdapter.getItemCount()));
             mappedIndex += childAdapter.getItemCount();
         }
     }
 
-    private MultiTypeRVAdapter getChildAdapterForPosition(int position) {
-        for (MultiTypeRVAdapter adapter : mAdapters) {
+    private DataSectionRVAdapter getChildAdapterForPosition(int position) {
+        for (DataSectionRVAdapter adapter : mAdapters) {
             if (mStackRangeMap.get(adapter).containPosition(position))
                 return adapter;
         }
@@ -123,5 +123,19 @@ public class StackRecyclerAdapter extends RecyclerView.Adapter {
         if (!range.containPosition(position))
             throw new IndexOutOfBoundsException("Adapter doesn't contain position");
         return position - range.getPosition();
+    }
+
+    void onPositionScrolled(int dy, int position) {
+        DataSectionRVAdapter adapter = getChildAdapterForPosition(position);
+        if (adapter != null) {
+            StackRange stackRange = mStackRangeMap.get(adapter);
+            adapter.onPositionScrolled(dy, position - stackRange.getPosition());
+        }
+    }
+
+    public void start() {
+        for (DataSectionRVAdapter adapter : mAdapters) {
+            adapter.onStartLoadData();
+        }
     }
 }

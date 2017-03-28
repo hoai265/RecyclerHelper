@@ -1,4 +1,4 @@
-package hoainguyen.lib.recyclerhelper.collection;
+package hoainguyen.lib.recyclerhelper.recycler.model;
 
 /**
  * Created by thinh on 12/15/15.

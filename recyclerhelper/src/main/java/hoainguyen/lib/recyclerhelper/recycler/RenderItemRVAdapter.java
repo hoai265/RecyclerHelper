@@ -1,4 +1,4 @@
-package hoainguyen.lib.recyclerhelper.recycler.adapter;
+package hoainguyen.lib.recyclerhelper.recycler;
 
 import java.util.List;
 
@@ -12,6 +12,8 @@ public interface RenderItemRVAdapter {
     void refresh(List<RenderItem> renderItems);
 
     void insert(int position, List<RenderItem> items);
+
+    void insert(int position, RenderItem renderItem);
 
     void update(int position, RenderItem renderItem);
 
