@@ -121,7 +121,7 @@ public class StackRecyclerAdapter extends RecyclerView.Adapter {
     private int computeChildPosition(StackChildRVAdapter adapter, int position) {
         StackRange range = mStackRangeMap.get(adapter);
         if (!range.containPosition(position))
-            throw new IndexOutOfBoundsException("Adapter doesn't contain position");
+            throw new IndexOutOfBoundsException("Adapter doesn't contain this position");
         return position - range.getPosition();
     }
 

@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 
+import hoainguyen.lib.recyclerhelper.Utils;
+
 /**
  * Created by hoainguyen on 10/11/16.
  */
@@ -38,7 +40,7 @@ public class XRecyclerView extends RecyclerView {
                 if (dy > 0) {
                     int[] lastPositions = new int[staggeredGridLayoutManager.getSpanCount()];
                     staggeredGridLayoutManager.findLastVisibleItemPositions(lastPositions);
-                    int lastVisibleItemPosition = findMax(lastPositions);
+                    int lastVisibleItemPosition = Utils.findMaxValue(lastPositions);
 
                     if (totalItemCount == lastVisibleItemPosition + 1) {
                         if (mRecycleScrollListener != null)
@@ -47,7 +49,7 @@ public class XRecyclerView extends RecyclerView {
                 } else {
                     int[] firstPositions = new int[staggeredGridLayoutManager.getSpanCount()];
                     staggeredGridLayoutManager.findFirstVisibleItemPositions(firstPositions);
-                    int firstVisibleItemPosition = findMin(firstPositions);
+                    int firstVisibleItemPosition = Utils.findMinValue(firstPositions);
 
                     if (firstVisibleItemPosition < 4) {
                         if (mRecycleScrollListener != null)
@@ -71,22 +73,6 @@ public class XRecyclerView extends RecyclerView {
 
     public void setEndlessScrollListener(EndlessScrollListener listener) {
         this.mRecycleScrollListener = listener;
-    }
-
-    private int findMax(int[] lastPositions) {
-        int maxValue = Integer.MIN_VALUE;
-        for (int position : lastPositions) {
-            maxValue = position > maxValue ? position : maxValue;
-        }
-        return maxValue;
-    }
-
-    private int findMin(int[] firstPositions) {
-        int minValue = Integer.MAX_VALUE;
-        for (int position : firstPositions) {
-            minValue = position < minValue ? position : minValue;
-        }
-        return minValue;
     }
 
     public interface EndlessScrollListener {
